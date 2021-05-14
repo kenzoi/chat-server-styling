@@ -1,0 +1,216 @@
+:root {
+  ---alsdfj--lasfkjd: asdlfkjasdlkfj
+}
+
+body {
+  margin: 0;
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: #dae2f8;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(90deg, #d6a4a4, #dae2f8);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(90deg, #d6a4a4, #dae2f8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.messages-container {
+  height: 90%;
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+
+  /* width */
+
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(173, 168, 168);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(85, 85, 85);
+}
+
+.message {
+  --left-color: #A0E7E5;
+  --right-color: #FBE7C6;
+  max-width: 60%;
+  width: fit-content;
+  /* font-size: 1em; */
+  font-weight: bold;
+  color: rgb(102, 102, 102);
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  clear: both;
+  position: relative;
+  z-index: 2;
+  transition: all 500ms;
+}
+
+/* .message:hover{
+    filter: brightness(95%);
+} */
+
+.left  {
+  background-color: var(--left-color);
+  align-self: flex-start;
+  display: block;
+  transition: all 500ms;
+}
+.left:hover{
+ background-color: rgb(121, 209, 206);
+}
+
+
+.left::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-top: 20px solid var(--left-color);
+  left: -12px;
+  top: 9px;
+  z-index: -2;
+  transition: all 500ms;
+}
+
+.left:hover::before {
+  content: "";
+  border-left: 30px solid var(--left-color);
+  border-right: 30px solid var(--left-color);
+  border-bottom: 20px solid var(--left-color);
+  border-top: 20px solid #B4F8C8;
+  left: -20px;
+  top: -25px;
+}
+
+.right {
+  background: var(--right-color);
+  align-self: flex-end;
+  display: block;
+  margin-right: 7px;
+  transition: all 500ms;
+}
+.right:hover{
+  background: #ecd5af;
+}
+
+.right::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-top: 20px solid var(--right-color);
+  right: -12px;
+  top: 9px;
+  z-index: -2;
+  transition: all 500ms;
+}
+
+.right:hover::before {
+  content: "";
+  border-left: 30px solid var(--right-color);
+  border-right: 30px solid var(--right-color);
+  border-bottom: 20px solid var(--right-color);
+  border-top: 20px solid #FEF7EC;
+  right: -9px;
+  top: -25px;
+
+}
+
+.message-time {
+  color: rgb(150, 150, 150);
+  padding-top: 5px;
+  font-size: 0.7rem;
+}
+
+.right .message-text {
+  text-align: right;
+}
+
+.right .message-time {
+  float: right;
+}
+
+.input-container {
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  margin-top: auto;
+  padding: 15px 40px;
+  background: rgba(157, 161, 216, 0.4);
+  box-sizing: border-box;
+}
+
+input {
+  background: rgb(255, 255, 255);
+  align-self: center;
+  width: 96%;
+  height: 100%;
+  margin: 0 10px 0 0;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  color: #666;
+  font-size: 1em;
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.send-button {
+  border-width: 0;
+  background: rgb(243, 139, 157);
+  color: rgba(255, 255, 255);
+  font-weight: bold;
+  outline: none;
+  width: 20%;
+  min-width: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 15px;
+  transition: all 250ms;
+}
+
+.send-button:hover {
+  background-color: #FFAEBC;
+  color: rgb(90, 36, 45);
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 650px) {
+
+  .send-button {
+  padding-right: 40px;
+  }
+
+  .input-container {
+    padding: 15px 20px;
+    height: 8%;
+  }
+}
